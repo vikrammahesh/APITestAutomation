@@ -1,11 +1,11 @@
 pipeline{
 agent any
 stages{
-    stage('Checkout'){
+    /*stage('Checkout'){
         steps{
             git credentialsId: '59edc931-e4a7-451e-989a-1d9305626b23', url: 'https://github.com/vikrammahesh/APITestAutomation.git'
         }
-    }
+    }**/
     stage('Test'){
         steps{
             bat 'mvn test'
