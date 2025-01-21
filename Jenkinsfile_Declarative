@@ -16,11 +16,12 @@ stages{
             echo 'Results..!!'
         }
     }
+    }
     post{
         always{
             echo 'Pipeline Completed'
             step([$class: 'JUnitResultArchiver', checksName: '', testResults: '**/target/surefire-reports/*.xml'])
         }
     }
-}
+
 }
