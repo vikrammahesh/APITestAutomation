@@ -1,0 +1,11 @@
+node{
+    stage('Checkout'){
+        git credentialsId: '59edc931-e4a7-451e-989a-1d9305626b23', url: 'https://github.com/vikrammahesh/APITestAutomation.git'
+    }
+    stage('Test'){
+        bat 'mvn test'
+    }
+    stage('Results'){
+        echo 'Results..!!'
+    }
+}
