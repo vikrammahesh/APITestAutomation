@@ -1,11 +1,23 @@
-node{
-    stage('Checkout'){
-        git credentialsId: '59edc931-e4a7-451e-989a-1d9305626b23', url: 'https://github.com/vikrammahesh/APITestAutomation.git'
+pipeline {
+  agent any
+  stages {
+    stage('Test') {
+      steps {
+        echo 'Sample '
+      }
     }
-    stage('Test'){
+
+    stage('API Test') {
+      steps {
         bat 'mvn test'
+      }
     }
-    stage('Results'){
-        echo 'Results..!!'
+
+    stage('Archive ') {
+      steps {
+        archiveArtifacts '/target/surefire-reports/*.xml'
+      }
     }
+
+  }
 }
